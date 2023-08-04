@@ -18,14 +18,14 @@ public class Client {
     private long id;
     private String firstName;
     private String lastName;
-    private String eMailAdress;
+    private String eMail;
 
     public Client(){}
 
     public Client(String first, String last, String eMail){
         this.firstName = first;
         this.lastName = last;
-        this.eMailAdress = eMail;
+        this.eMail = eMail;
     }
 
 
@@ -50,12 +50,10 @@ public class Client {
         }
 
 
-        public String geteMailAdress(){
-            return eMailAdress;
-        }
+        public String getEMail(){return eMail;}
 
-        public void seteMailAdress(String eMailAdress){
-            this.eMailAdress = eMailAdress
+        public void setEMail(String eMailAdress){
+            this.eMail = eMailAdress;
         }
     public String toString(){
         return firstName + " " + lastName;

@@ -16,10 +16,10 @@ public class HomebankingApApplication {
 	@Bean
 
 	public CommandLineRunner initData(){
-		return (args -> ){
+		return (args -> {
 
 			Client client1 = new Client();
-		}
+		});
 	}
 
 }
