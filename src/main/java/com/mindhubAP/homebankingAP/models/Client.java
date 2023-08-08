@@ -4,6 +4,7 @@ package com.mindhubAP.homebankingAP.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 import java.util.HashSet;
 
 @Entity
@@ -18,7 +19,7 @@ public class Client {
     private String lastName;
     private String eMail;
 
-    @OneToMany(mappedBy="owner", fetch = fetchType.EAGER);
+    @OneToMany(mappedBy="owner", fetch = FetchType.EAGER)
     Set<Account> accounts = new HashSet<>();
 
 
@@ -30,11 +31,20 @@ public class Client {
         this.eMail = eMail;
     }
 
+    public void addAccount (Account account) {
+        account.setOwner(this);
+        accounts.add(account);
+    }
 
+    public long getId() {
+        return id;
+    }
 
+    public Set<Account> getAccounts() {
+        return accounts;
+    }
 
-
-        public String getFirstName (){
+    public String getFirstName (){
             return firstName;
         }
 

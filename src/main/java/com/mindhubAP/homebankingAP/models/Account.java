@@ -1,6 +1,7 @@
 package com.mindhubAP.homebankingAP.models;
 
 
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,36 +13,58 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private String id;
+    private long id;
 
     private String number;
     private LocalDate creationDate;
     private double balance;
 
-    @ManyToOne(fetch = fetchType.EAGER);
-    @JoinColumn(name = "owner_id");
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id")
     private Client owner;
 
     public Account(){}
 
-    public Account(String number, LocalDate creationDate, double balance){}
+    public Account(String number, LocalDate creationDate, double balance){
+        this.number = number;
+        this.creationDate = creationDate;
+        this.balance = balance;
+    }
 
 
     public String getNumber() {
-        //String number = number;
         return number;
     }
 
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNumber(String number) {this.number = number;}
+
+    public LocalDate getCreationDate() {
+        return creationDate;
     }
 
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
 
+    public double getBalance() {
+        return balance;
+    }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 
+    @JsonIgnore
+    public Client getOwner() {
+        return owner;
+    }
 
+    public void setOwner(Client owner) {
+        this.owner = owner;
+    }
 
-
-
+    public long getId() {
+        return id;
+    }
 }
