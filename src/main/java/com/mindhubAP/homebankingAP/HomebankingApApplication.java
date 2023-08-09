@@ -2,8 +2,11 @@ package com.mindhubAP.homebankingAP;
 
 import com.mindhubAP.homebankingAP.models.Account;
 import com.mindhubAP.homebankingAP.models.Client;
+import com.mindhubAP.homebankingAP.models.Transaction;
+import com.mindhubAP.homebankingAP.models.TransactionType;
 import com.mindhubAP.homebankingAP.repositories.AccountRepository;
 import com.mindhubAP.homebankingAP.repositories.ClientRepository;
+import com.mindhubAP.homebankingAP.repositories.TransactionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,7 +24,7 @@ public class HomebankingApApplication {
 
 	@Bean
 
-	public CommandLineRunner initData(ClientRepository clientRepository, AccountRepository accountRepository){
+	public CommandLineRunner initData(ClientRepository clientRepository, AccountRepository accountRepository, TransactionRepository transactionRepository){
 		return args -> {
 
 			Client client1 = new Client ("Melba", "Morel", "melba@mindhub.com");
@@ -45,6 +48,7 @@ public class HomebankingApApplication {
 			Account account4 = new Account("VIM004",LocalDate.now().plusDays(1), 2000);
 			client2.addAccount(account4);
 			accountRepository.save(account4);
+
 		};
 	}
 

@@ -36,6 +36,11 @@ public class Account {
         this.balance = balance;
     }
 
+    public void addTransaction (Transaction transaction) {
+        transaction.setAccount(this);
+        transactions.add(transaction);
+    }
+
 
     public String getNumber() {
         return number;
