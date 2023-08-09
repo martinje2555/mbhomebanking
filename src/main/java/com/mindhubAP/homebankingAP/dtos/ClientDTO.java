@@ -1,10 +1,13 @@
 package com.mindhubAP.homebankingAP.dtos;
 
+import com.mindhubAP.homebankingAP.models.Account;
+import com.mindhubAP.homebankingAP.models.Client;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 
 public class ClientDTO {
@@ -13,6 +16,7 @@ public class ClientDTO {
     private String firstName;
     private String lastName;
     private String eMail;
+    private Set<AccountDTO> accounts;
 
     public ClientDTO(){}
 
@@ -21,6 +25,7 @@ public class ClientDTO {
         this.firstName = client.getFirstName();
         this.lastName = client.getLastName();
         this.eMail = client.getEMail();
+        this.accounts = client.getAccounts().stream().map(account -> new AccountDTO(account)).collect(Collectors.toSet());
     }
 
     public long getId() {
@@ -31,21 +36,15 @@ public class ClientDTO {
         return firstName;
     }
 
-
-    public void setFirstName(String firstName){
-        this.firstName = firstName;
-    }
-
     public String getLastName(){
         return lastName;
     }
 
-    public void setLastName(String lastName){
-        this.lastName = lastName;
-    }
-
-
     public String getEMail(){return eMail;}
+
+    public Set<AccountDTO> getAccounts() {
+        return accounts;
+    }
 
     public void setEMail(String eMail){
         this.eMail = eMail;
