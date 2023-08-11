@@ -14,6 +14,9 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
 
+import static com.mindhubAP.homebankingAP.models.TransactionType.CREDIT;
+import static com.mindhubAP.homebankingAP.models.TransactionType.DEBIT;
+
 
 @SpringBootApplication
 public class HomebankingApApplication {
@@ -48,6 +51,38 @@ public class HomebankingApApplication {
 			Account account4 = new Account("VIM004",LocalDate.now().plusDays(1), 2000);
 			client2.addAccount(account4);
 			accountRepository.save(account4);
+
+			Transaction transaction1 = new Transaction(CREDIT, 5000, LocalDate.now(),"Transference");
+			account1.addTransaction(transaction1);
+			transactionRepository.save(transaction1);
+
+			Transaction transaction2 = new Transaction(DEBIT, -2500 ,LocalDate.now(), "Maintenance Cost");
+			account1.addTransaction(transaction2);
+			transactionRepository.save(transaction2);
+
+			Transaction transaction3 = new Transaction(DEBIT, -2500, LocalDate.now(), "Maintenance cost");
+			account2.addTransaction(transaction3);
+			transactionRepository.save(transaction3);
+
+			Transaction transaction4 = new Transaction(CREDIT, 322875.60, LocalDate.now(), "Salary credit");
+			account2.addTransaction(transaction4);
+			transactionRepository.save(transaction4);
+
+			Transaction transaction5 = new Transaction(CREDIT, 120000, LocalDate.now(), "Salary credit");
+			account3.addTransaction(transaction5);
+			transactionRepository.save(transaction5);
+
+			Transaction transaction6 = new Transaction(DEBIT, -20574.6,LocalDate.now(), "Service payment");
+			account3.addTransaction(transaction6);
+			transactionRepository.save(transaction6);
+
+			Transaction transaction7 = new Transaction(DEBIT, -20000,LocalDate.now(), "Service payment");
+			account4.addTransaction(transaction7);
+			transactionRepository.save(transaction7);
+
+			Transaction transaction8 = new Transaction(CREDIT, 410288.50,LocalDate.now(), "Service pay");
+			account4.addTransaction(transaction8);
+			transactionRepository.save(transaction8);
 
 		};
 	}

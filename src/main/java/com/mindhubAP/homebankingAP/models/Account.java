@@ -25,7 +25,7 @@ public class Account {
     @JoinColumn(name = "owner_id")
     private Client owner;
 
-    @OneToMany(mappedBy="owner", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="account", fetch = FetchType.EAGER)
     Set<Transaction> transactions = new HashSet<>();
 
     public Account(){}
