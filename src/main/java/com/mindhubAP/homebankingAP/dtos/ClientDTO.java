@@ -49,6 +49,7 @@ public class ClientDTO {
     public void setEMail(String eMail){
         this.eMail = eMail;
     }
+
     public String toString(){
         return firstName + " " + lastName;
     }

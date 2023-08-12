@@ -20,6 +20,8 @@ public class AccountDTO {
         this.balance = account.getBalance();
     }
 
+    public long getId() { return id; }
+
     public String getNumber() {
         return number;
     }
@@ -32,7 +34,5 @@ public class AccountDTO {
         return balance;
     }
 
-    public long getId() {
-        return id;
-    }
+
 }

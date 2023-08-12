@@ -19,6 +19,8 @@ public class Transaction {
     private LocalDate localDate;
     private String description;
 
+    public Transaction() { }
+
     public Transaction(TransactionType type, double amount, LocalDate localDate, String description) {
         this.type = type;
         this.amount = amount;
@@ -45,9 +47,7 @@ public class Transaction {
         this.type = type;
     }
 
-    public double getAmount() {
-        return amount;
-    }
+    public double getAmount() { return amount; }
 
     public void setAmount(double amount) {
         this.amount = amount;
