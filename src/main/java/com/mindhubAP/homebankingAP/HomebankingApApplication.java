@@ -1,9 +1,6 @@
 package com.mindhubAP.homebankingAP;
 
-import com.mindhubAP.homebankingAP.models.Account;
-import com.mindhubAP.homebankingAP.models.Client;
-import com.mindhubAP.homebankingAP.models.Transaction;
-import com.mindhubAP.homebankingAP.models.TransactionType;
+import com.mindhubAP.homebankingAP.models.*;
 import com.mindhubAP.homebankingAP.repositories.AccountRepository;
 import com.mindhubAP.homebankingAP.repositories.ClientRepository;
 import com.mindhubAP.homebankingAP.repositories.TransactionRepository;
@@ -13,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static com.mindhubAP.homebankingAP.models.TransactionType.CREDIT;
 import static com.mindhubAP.homebankingAP.models.TransactionType.DEBIT;
@@ -83,6 +81,10 @@ public class HomebankingApApplication {
 			Transaction transaction8 = new Transaction(CREDIT, 410288.50,LocalDate.now(), "Service pay");
 			account4.addTransaction(transaction8);
 			transactionRepository.save(transaction8);
+
+			Loan loan1 = new Loan("mortgage", 500000, List.of(12,24,36,48,60));
+			Loan loan2 = new Loan("personal", 100000, List.of(6, 12, 24));
+			Loan loan3 = new Loan("automotive", 300000, List.of(6, 12, 24, 36));
 
 		};
 	}
