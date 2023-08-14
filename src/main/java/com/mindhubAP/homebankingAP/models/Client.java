@@ -67,7 +67,7 @@ public class Client {
         public void setEMail(String eMail){
             this.eMail = eMail;
         }
-    public String toString(){
+        public String toString(){
         return firstName + " " + lastName;
     }
 
