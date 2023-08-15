@@ -12,32 +12,36 @@ public class ClientLoan {
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
 
+
     private long amount;
     private int payment;
-    private long clientId;
-    private long loanId;
 
-    public ClientLoan() {
-    }
-
-    public ClientLoan(long amount, int payment, long clientId, long loanId) {
-        this.amount = amount;
-        this.payment = payment;
-        this.clientId = clientId;
-        this.loanId = loanId;
-    }
-
-    public long getId() {
-        return id;
-    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "clientId")
     private Client client;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "loantId")
+    @JoinColumn(name = "loanId")
     private Loan loan;
+
+    public ClientLoan() {
+    }
+
+
+
+    public ClientLoan(long amount, int payment) {
+
+        this.amount = amount;
+        this.payment = payment;
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+
 
 
 
@@ -58,19 +62,18 @@ public class ClientLoan {
         this.payment = payment;
     }
 
-    public long getClientId() {
-        return clientId;
+
+
+    public Loan getLoan() {
+        return loan;
     }
 
-    public void setClientId(long clientId) {
-        this.clientId = clientId;
+    public void setLoan(Loan loan) {
+        this.loan = loan;
     }
 
-    public long getLoanId() {
-        return loanId;
-    }
 
-    public void setLoanId(long loanId) {
-        this.loanId = loanId;
-    }
+    public Client getClient() { return client; }
+
+    public void setClient(Client client) { this.client = client; }
 }

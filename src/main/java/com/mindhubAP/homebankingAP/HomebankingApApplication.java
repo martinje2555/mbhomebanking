@@ -1,9 +1,7 @@
 package com.mindhubAP.homebankingAP;
 
 import com.mindhubAP.homebankingAP.models.*;
-import com.mindhubAP.homebankingAP.repositories.AccountRepository;
-import com.mindhubAP.homebankingAP.repositories.ClientRepository;
-import com.mindhubAP.homebankingAP.repositories.TransactionRepository;
+import com.mindhubAP.homebankingAP.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,7 +23,12 @@ public class HomebankingApApplication {
 
 	@Bean
 
-	public CommandLineRunner initData(ClientRepository clientRepository, AccountRepository accountRepository, TransactionRepository transactionRepository){
+	public CommandLineRunner initData(ClientRepository clientRepository,
+									  AccountRepository accountRepository,
+									  TransactionRepository transactionRepository,
+									  LoanRepository loanRepository,
+									  ClientLoanRepository clientLoanRepository
+									  ){
 		return args -> {
 
 			Client client1 = new Client ("Melba", "Morel", "melba@mindhub.com");
@@ -85,6 +88,27 @@ public class HomebankingApApplication {
 			Loan loan1 = new Loan("mortgage", 500000, List.of(12,24,36,48,60));
 			Loan loan2 = new Loan("personal", 100000, List.of(6, 12, 24));
 			Loan loan3 = new Loan("automotive", 300000, List.of(6, 12, 24, 36));
+			loanRepository.save(loan1);
+			loanRepository.save(loan2);
+			loanRepository.save(loan3);
+
+			ClientLoan clientLoan1 = new ClientLoan(400000,60);
+			client1.addClientLoan(clientLoan1);
+			clientLoanRepository.save(clientLoan1);
+
+			ClientLoan clientLoan2 = new ClientLoan(50000,12);
+			client1.addClientLoan(clientLoan2);
+			clientLoanRepository.save(clientLoan2);
+
+			ClientLoan clientLoan3 = new ClientLoan(100000,24);
+			client2.addClientLoan(clientLoan3);
+			clientLoanRepository.save(clientLoan3);
+
+			ClientLoan clientLoan4 = new ClientLoan(200000,36);
+			client2.addClientLoan(clientLoan4);
+			clientLoanRepository.save(clientLoan4);
+
+
 
 		};
 	}

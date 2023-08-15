@@ -32,13 +32,14 @@ public class Loan {
         this.payments = payments;
     }
 
-    @OneToMany(mappedBy="clientLoan", fetch = FetchType.EAGER)
-    Set<ClientLoan> Clientloans = new HashSet<>();
+    @OneToMany(mappedBy="loan", fetch = FetchType.EAGER)
+    private Set<ClientLoan> Clientloans = new HashSet<>();
 
     public void addClientLoan (ClientLoan clientLoan) {
         clientLoan.setLoan(this);
         Clientloans.add(clientLoan);
     }
+
 
     public long getId() {
         return id;
