@@ -27,7 +27,8 @@ public class HomebankingApApplication {
 									  AccountRepository accountRepository,
 									  TransactionRepository transactionRepository,
 									  LoanRepository loanRepository,
-									  ClientLoanRepository clientLoanRepository
+									  ClientLoanRepository clientLoanRepository,
+									  CardRepository cardRepository
 									  ){
 		return args -> {
 
@@ -107,6 +108,8 @@ public class HomebankingApApplication {
 			ClientLoan clientLoan4 = new ClientLoan(200000,36);
 			client2.addClientLoan(clientLoan4);
 			clientLoanRepository.save(clientLoan4);
+
+			Card card1 = new Card(CardTYpe.DEBIT, "4589 6321 1200 0123", 223, LocalDate.now(), LocalDate.plusYears(5), "Melba Morel",Colour.GOLD);
 
 
 
