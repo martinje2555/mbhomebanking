@@ -45,6 +45,14 @@ public class Client {
         clientLoans.add(clientLoan);
     }
 
+    @OneToMany(mappedBy="client", fetch = FetchType.EAGER)
+    private Set<Card> cards = new HashSet<>();
+
+    public void addCard (Card card) {
+        card.setClient(this);
+        cards.add(card);
+    }
+
 
 
     public long getId() {
@@ -57,10 +65,11 @@ public class Client {
 
     public Set<ClientLoan> getClientLoans() { return clientLoans;}
 
+    public Set<Card> getCards() {return cards;}
+
     public String getFirstName (){
             return firstName;
         }
-
 
         public void setFirstName(String firstName){
             this.firstName = firstName;
