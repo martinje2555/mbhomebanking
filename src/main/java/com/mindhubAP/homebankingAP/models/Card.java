@@ -1,10 +1,8 @@
 package com.mindhubAP.homebankingAP.models;
 
-import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 @Entity
@@ -14,7 +12,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
-    private CardTYpe type;
+    private CardType type;
     private String number;
     private short securityCode;
     private LocalDate effectiveDate;
@@ -25,7 +23,7 @@ public class Card {
     public Card() {
     }
 
-    public Card(CardTYpe type, String number, short securityCode, LocalDate effectiveDate, LocalDate expirationDate, String clientName, Colour colour) {
+    public Card(CardType type, String number, short securityCode, LocalDate effectiveDate, LocalDate expirationDate, String clientName, Colour colour) {
         this.type = type;
         this.number = number;
         this.securityCode = securityCode;
@@ -43,11 +41,11 @@ public class Card {
         return id;
     }
 
-    public CardTYpe getType() {
+    public CardType getType() {
         return type;
     }
 
-    public void setType(CardTYpe type) {
+    public void setType(CardType type) {
         this.type = type;
     }
 

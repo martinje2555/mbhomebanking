@@ -109,15 +109,15 @@ public class HomebankingApApplication {
 			client2.addClientLoan(clientLoan4);
 			clientLoanRepository.save(clientLoan4);
 
-			Card card1 = new Card(CardTYpe.DEBIT, "4589 6321 1200 0123", (short) 223, LocalDate.now(), LocalDate.now().plusYears(5), "Melba Morel",Colour.GOLD);
+			Card card1 = new Card(CardType.DEBIT, "4589 6321 1200 0123", (short) 223, LocalDate.now(), LocalDate.now().plusYears(5), "Melba Morel",Colour.GOLD);
 			client1.addCard(card1);
 			cardRepository.save(card1);
 
-			Card card2 = new Card(CardTYpe.CREDIT, "1425 8976 6324 1387", (short) 754, LocalDate.now(), LocalDate.now().plusYears(5), "Melba Morel",Colour.TITANIUM);
+			Card card2 = new Card(CardType.CREDIT, "1425 8976 6324 1387", (short) 754, LocalDate.now(), LocalDate.now().plusYears(5), "Melba Morel",Colour.TITANIUM);
 			client1.addCard(card2);
 			cardRepository.save(card2);
 
-			Card card3= new Card(CardTYpe.DEBIT, "3012 2548 6548 3259", (short) 125, LocalDate.now(), LocalDate.now().plusYears(5), "Oscar Jaramillo",Colour.SILVER);
+			Card card3= new Card(CardType.DEBIT, "3012 2548 6548 3259", (short) 125, LocalDate.now(), LocalDate.now().plusYears(5), "Oscar Jaramillo",Colour.SILVER);
 			client2.addCard(card3);
 			cardRepository.save(card3);
 

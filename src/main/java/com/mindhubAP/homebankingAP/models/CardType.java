@@ -1,6 +1,6 @@
 package com.mindhubAP.homebankingAP.models;
 
-public enum CardTYpe {
+public enum CardType {
 
     DEBIT,
     CREDIT
