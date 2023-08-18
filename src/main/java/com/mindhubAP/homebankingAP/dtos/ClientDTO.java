@@ -29,7 +29,7 @@ public class ClientDTO {
         this.eMail = client.getEMail();
         this.accounts = client.getAccounts().stream().map(account -> new AccountDTO(account)).collect(Collectors.toSet());
         this.clientLoan = client.getClientLoans().stream().map(clientLoan -> new ClientLoanDTO(clientLoan)).collect(Collectors.toSet());
-        this.card = client.getCards().stream().map(client -> new CardDTO(card)).collect(Collectors.toSet());
+        this.card = client.getCards().stream().map(card -> new CardDTO(card)).collect(Collectors.toSet());
     }
 
     public long getId() {

@@ -1,5 +1,6 @@
 package com.mindhubAP.homebankingAP.dtos;
 
+import com.mindhubAP.homebankingAP.models.Card;
 import com.mindhubAP.homebankingAP.models.CardType;
 import com.mindhubAP.homebankingAP.models.Colour;
 
@@ -19,14 +20,15 @@ public class CardDTO {
     public CardDTO() {
     }
 
-    public CardDTO(CardType type, String number, short securityCode, LocalDate effectiveDate, LocalDate expirationDate, String clientName, Colour colour) {
-        this.type = type;
-        this.number = number;
-        this.securityCode = securityCode;
-        this.effectiveDate = effectiveDate;
-        this.expirationDate = expirationDate;
-        this.clientName = clientName;
-        this.colour = colour;
+    public CardDTO(Card card) {
+        this.id = card.getId();
+        this.type = card.getType();
+        this.number = card.getNumber();
+        this.securityCode = card.getSecurityCode();
+        this.effectiveDate = card.getEffectiveDate();
+        this.expirationDate = card.getExpirationDate();
+        this.clientName = card.getClientName();
+        this.colour = card.getColour();
     }
 
     public long getId() {
