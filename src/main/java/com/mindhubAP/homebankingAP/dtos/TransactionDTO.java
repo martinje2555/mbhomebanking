@@ -17,11 +17,11 @@ public class TransactionDTO {
     public TransactionDTO(){}
 
     public TransactionDTO(Transaction transaction) {
-        this.id = id;
-        this.type = type;
-        this.amount = amount;
-        this.localDate = localDate;
-        this.description = description;
+        this.id = transaction.getId();
+        this.type = transaction.getType();
+        this.amount = transaction.getAmount();
+        this.localDate = transaction.getLocalDate();
+        this.description = transaction.getDescription();
     }
 
     public long getId() {

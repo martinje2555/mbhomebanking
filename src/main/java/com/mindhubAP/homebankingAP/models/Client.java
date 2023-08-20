@@ -68,28 +68,29 @@ public class Client {
     public Set<Card> getCards() {return cards;}
 
     public String getFirstName (){
-            return firstName;
-        }
-
-        public void setFirstName(String firstName){
-            this.firstName = firstName;
-        }
-
-        public String getLastName(){
-            return lastName;
-        }
-
-        public void setLastName(String lastName){
-            this.lastName = lastName;
-        }
+        return firstName;
+    }
 
 
-        public String getEMail(){return eMail;}
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
 
-        public void setEMail(String eMail){
-            this.eMail = eMail;
-        }
-        public String toString(){
+    public String getLastName(){
+        return lastName;
+    }
+
+    public void setLastName(String lastName){
+        this.lastName = lastName;
+    }
+
+
+    public String getEMail(){return eMail;}
+
+    public void setEMail(String eMail){
+        this.eMail = eMail;
+    }
+    public String toString(){
         return firstName + " " + lastName;
     }
 

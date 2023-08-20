@@ -20,6 +20,10 @@ public class Card {
     private String clientName;
     private Colour colour;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "clientId")
+    private Client client;
+
     public Card() {
     }
 
@@ -33,9 +37,7 @@ public class Card {
         this.colour = colour;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "clientId")
-    private Client client;
+
 
     public long getId() {
         return id;

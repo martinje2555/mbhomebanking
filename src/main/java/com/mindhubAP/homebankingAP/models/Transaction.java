@@ -9,6 +9,8 @@ import java.time.LocalDate;
 @Entity
 public class Transaction {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -29,8 +31,10 @@ public class Transaction {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "account_id")
+    @JoinColumn(name = "account-id")
     private Account account;
+
+
 
 
 
