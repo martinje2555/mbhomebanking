@@ -19,14 +19,16 @@ public class Client {
     private String firstName;
     private String lastName;
     private String eMail;
+    private String password;
 
 
     public Client(){}
 
-    public Client(String first, String last, String eMail){
+    public Client(String first, String last, String eMail, String password){
         this.firstName = first;
         this.lastName = last;
         this.eMail = eMail;
+        this.password = password;
     }
 
     @OneToMany(mappedBy="owner", fetch = FetchType.EAGER)
@@ -94,5 +96,11 @@ public class Client {
         return firstName + " " + lastName;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

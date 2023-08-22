@@ -31,7 +31,7 @@ public class Transaction {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "account-id")
+    @JoinColumn(name = "accountId")
     private Account account;
 
 

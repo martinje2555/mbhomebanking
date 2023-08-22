@@ -1,12 +1,8 @@
 package com.mindhubAP.homebankingAP.dtos;
 
-import com.mindhubAP.homebankingAP.models.Account;
 import com.mindhubAP.homebankingAP.models.Client;
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
 import java.util.Set;
-import java.util.HashSet;
 import java.util.stream.Collectors;
 
 
@@ -16,20 +12,25 @@ public class ClientDTO {
     private String firstName;
     private String lastName;
     private String eMail;
+    private String password;
     private Set<AccountDTO> accounts;
     private Set<ClientLoanDTO> clientLoan;
     private Set<CardDTO> card;
 
-    public ClientDTO(){}
+    public ClientDTO(){
 
-    public ClientDTO(Client client){
+    }
+
+    public ClientDTO(Client client, String password){
         this.id = client.getId();
         this.firstName = client.getFirstName();
         this.lastName = client.getLastName();
         this.eMail = client.getEMail();
+        this.password = password;
         this.accounts = client.getAccounts().stream().map(account -> new AccountDTO(account)).collect(Collectors.toSet());
         this.clientLoan = client.getClientLoans().stream().map(clientLoan -> new ClientLoanDTO(clientLoan)).collect(Collectors.toSet());
         this.card = client.getCards().stream().map(card -> new CardDTO(card)).collect(Collectors.toSet());
+
     }
 
     public long getId() {
@@ -59,5 +60,8 @@ public class ClientDTO {
 
     public Set<CardDTO> getCards(){return card; }
 
+    public String getPassword() {
+        return password;
+    }
 
 }
