@@ -27,18 +27,18 @@ public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter {
     public void init(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService (inputName -> {
 
-           Client client = clientRepository.findByEMail(inputName);
+           Client client = (Client) clientRepository.findByEMail(inputName);
 
             if (client != null) {
                 return new Client(Client.getEMail(), Client.getPassword(),
-                AuthorityUtils.createAuthorityList("CLIENT"));
+                AuthorityUtils.createAuthorityList("USER"));
 
             } else {
-                throw new ClientNameNotFoundException("Unknown user: " + inputName);
+                throw new UserNameNotFoundException("Unknown user: " + inputName);
             }
-        },
+        });
 
 
-    }
+    }}
 
 
