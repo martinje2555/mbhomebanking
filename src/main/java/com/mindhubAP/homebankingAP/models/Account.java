@@ -79,4 +79,6 @@ public class Account {
     public long getId() {
         return id;
     }
+
+    public Set<Transaction> getTransactions() {return transactions;}
 }

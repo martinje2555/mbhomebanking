@@ -4,6 +4,9 @@ import com.mindhubAP.homebankingAP.models.Transaction;
 import com.mindhubAP.homebankingAP.models.TransactionType;
 
 import java.time.LocalDate;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class TransactionDTO {
 
@@ -43,4 +46,6 @@ public class TransactionDTO {
     public String getDescription() {
         return description;
     }
+
+
 }
