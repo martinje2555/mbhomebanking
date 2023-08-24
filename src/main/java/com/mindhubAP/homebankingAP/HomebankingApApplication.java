@@ -2,6 +2,7 @@ package com.mindhubAP.homebankingAP;
 
 import com.mindhubAP.homebankingAP.models.*;
 import com.mindhubAP.homebankingAP.repositories.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,10 @@ public class HomebankingApApplication {
 		SpringApplication.run(HomebankingApApplication.class, args);
 	}
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+
 	@Bean
 
 	public CommandLineRunner initData(ClientRepository clientRepository,
@@ -33,11 +38,10 @@ public class HomebankingApApplication {
 	){
 		return args -> {
 
-			@Override
-					private PasswordEncoder passwordEncoder
+
 
 			Client client1 = new Client ("Melba", "Morel", "melba@mindhub.com", passwordEncoder.encode("Mm1234"));
-			Client client2 = new Client("Oscar", "Jaramillo", "ojaramillo@mindhub.com", "Oj3578");
+			Client client2 = new Client("Oscar", "Jaramillo", "ojaramillo@mindhub.com", passwordEncoder.encode("Oj3578"));
 
 			clientRepository.save(client1);
 			clientRepository.save(client2);
